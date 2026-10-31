@@ -9,11 +9,14 @@ open CategoryTheory
 universe u v
 
 /-
-
+  Weak tripos: surjective generic
+  Strong tripos: bijective classify
 -/
 
-structure Tripos (C : Type v) [Category.{v} C] [Limits.HasBinaryProducts C]
+structure WeakTripos (C : Type v) [Category.{v} C] [Limits.HasBinaryProducts C]
     extends Hyperdoctrine.{u, v} C where
   Ω : C
   mem : toHyperdoctrine.P.obj (Opposite.op Ω) -- generic predicate
-  /-- Hom(X, Ω) ≃ P(X) --/
+  -- Hom(X, Ω) ≃ P(X)
+  generic : ∀{X : C} (φ : toHyperdoctrine.P.obj (Opposite.op X)),
+        ∃χ : X ⟶ Ω, toHyperdoctrine.P.map χ.op mem = φ
