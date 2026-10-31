@@ -1,5 +1,7 @@
 import Hyperdoctripos.Basic
+import Mathlib.CategoryTheory.Category.Basic
 universe u v
+open CategoryTheory
 namespace Hyperdoctrine
 variable {C : Type v} [Category.{v} C] [Limits.HasBinaryProducts C]
 variable (H : Hyperdoctrine.{u, v} C)

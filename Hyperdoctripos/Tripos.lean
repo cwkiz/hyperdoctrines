@@ -17,6 +17,5 @@ structure WeakTripos (C : Type v) [Category.{v} C] [Limits.HasBinaryProducts C]
     extends Hyperdoctrine.{u, v} C where
   Ω : C
   mem : toHyperdoctrine.P.obj (Opposite.op Ω) -- generic predicate
-  -- Hom(X, Ω) ≃ P(X)
   generic : ∀{X : C} (φ : toHyperdoctrine.P.obj (Opposite.op X)),
         ∃χ : X ⟶ Ω, toHyperdoctrine.P.map χ.op mem = φ
