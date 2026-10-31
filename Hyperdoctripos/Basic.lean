@@ -28,12 +28,7 @@ exists_ : ∀ {X Y : C} (_f : X ⟶ Y), (P.obj (Opposite.op X) → P.obj (Opposi
 forall_ : ∀ {X Y : C} (_f : X ⟶ Y), (P.obj (Opposite.op X) → P.obj (Opposite.op Y))
 eq_ : ∀ X : C, P.obj ((Opposite.op (X ⨯ X))) :=
   fun X => exists_ (Limits.prod.lift (𝟙 X) (𝟙 X)) ⊤
--- now's time to enrich equality
-eq_refl : ∀ X : C, ⊤ ≤ P.map (Limits.prod.lift (𝟙 X) (𝟙 X)).op (eq_ X)
--- diagonal morphism
-eq_subst : ∀ {X : C} (φ : P.obj (Opposite.op X)),
-  eq_ X ⊓ P.map Limits.prod.fst.op φ ≤ P.map Limits.prod.snd.op φ
--- leibniz equality
+
 
 
 existsAdj : ∀ {X Y : C} (f : X ⟶ Y),
